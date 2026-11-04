@@ -2,7 +2,7 @@
 {
   programs.emacs = {
     enable = true;
-		package = (pkgs.emacsPackagesFor pkgs.emacs-pgtk).emacsWithPackages (epkgs: with epkgs; [
+		package = (pkgs.emacsPackagesFor pkgs.emacs-nox).emacsWithPackages (epkgs: with epkgs; [
 			use-package
 			magit
 			vterm
