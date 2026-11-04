@@ -59,10 +59,12 @@ in
             continue
             ;;
         esac
-        ln -sfn "$item" "${appRoot}/$name"
+        rm -rf "${appRoot}/$name"
+        cp -r "$item" "${appRoot}/$name"
       done
 
-      ln -sfn ${dataRoot} ${appRoot}/repository
+      rm -rf ${appRoot}/repository
+      ln -s ${dataRoot} ${appRoot}/repository
 
       if [ ! -e ${appRoot}/configuration.php ]; then
         csrf_key="$(od -An -N32 -tx1 /dev/urandom | tr -d ' \n')"
