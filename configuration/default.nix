@@ -1,0 +1,24 @@
+{
+  imports = [
+    ./agenix.nix
+    ./bootloader.nix
+    ./dconf.nix
+    ./dynamiclinking.nix
+    ./experimental.nix
+    ./firewall.nix
+    ./fish.nix
+    ./fonts.nix
+    ./kernel.nix
+    ./keymap.nix
+    ./pamsshd.nix
+    ./rtkit.nix
+    ./ssh.nix
+    ./stateversion.nix
+    ./timezone.nix
+    ./tor.nix
+    ./unfree.nix
+    ./user.nix
+    ./vim.nix
+    ./zoxide.nix
+  ];
+}
