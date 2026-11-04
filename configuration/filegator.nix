@@ -49,7 +49,7 @@ in
       cp -rn ${filegator}/filegator/private/. ${appRoot}/private/
       chown filegator:nginx /var/lib/filegator ${appRoot}
       chmod 0750 /var/lib/filegator ${appRoot}
-      chown -R filegator:nginx ${appRoot}/private ${dataRoot}
+      chown -R nginx:nginx ${appRoot}/private ${dataRoot}
       chmod 0770 ${appRoot}/private ${appRoot}/private/{logs,sessions,tmp} ${dataRoot}
 
       for item in ${filegator}/filegator/*; do
