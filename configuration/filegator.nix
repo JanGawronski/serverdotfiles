@@ -5,7 +5,7 @@ let
   dataRoot = "/srv/cieplabaza";
   filegator = pkgs.fetchzip {
     url = "https://raw.githubusercontent.com/filegator/static/604fdfe167f135b56d8615e2ddbdc4949fc9b2f9/builds/filegator_latest.zip";
-    hash = "sha256-ME2Xn2RuydtOajhFK3lqJp+pcBZGCqP45Firx7/lWeE=";
+    hash = "sha256-DUR/wv8wBQN41006TnlZyR0cgiTlAvK8D84o52kUfc0=";
     stripRoot = false;
   };
   php = pkgs.php.withExtensions ({ enabled, all }: enabled ++ (with all; [
