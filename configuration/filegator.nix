@@ -23,8 +23,8 @@ in
   };
 
   systemd.tmpfiles.rules = [
-    "d /var/lib/filegator 0750 filegator filegator -"
-    "d ${appRoot} 0750 filegator filegator -"
+    "d /var/lib/filegator 0750 filegator nginx -"
+    "d ${appRoot} 0750 filegator nginx -"
     "d ${dataRoot} 0770 filegator nginx -"
     "d ${appRoot}/private 0770 filegator nginx -"
     "d ${appRoot}/private/logs 0770 filegator nginx -"
@@ -47,6 +47,8 @@ in
 
       mkdir -p ${appRoot}/private/{logs,sessions,tmp}
       cp -rn ${filegator}/filegator/private/. ${appRoot}/private/
+      chown filegator:nginx /var/lib/filegator ${appRoot}
+      chmod 0750 /var/lib/filegator ${appRoot}
       chown -R filegator:nginx ${appRoot}/private ${dataRoot}
       chmod 0770 ${appRoot}/private ${appRoot}/private/{logs,sessions,tmp} ${dataRoot}
 
@@ -222,7 +224,7 @@ PHP
       locations."~ \\.php$" = {
         extraConfig = ''
           include ${pkgs.nginx}/conf/fastcgi.conf;
-          fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+          fastcgi_param SCRIPT_FILENAME ${appRoot}/dist$fastcgi_script_name;
           fastcgi_pass unix:${config.services.phpfpm.pools.filegator.socket};
         '';
       };
