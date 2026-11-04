@@ -1,39 +1,33 @@
 let
   secretNames = [
     "git-credentials"
-    "ngrok"
-    "playit"
     "musicbot"
     "userpassword"
     "rootpassword"
     "guestpassword"
   ];
 
-  hostKeys = {
-    computer = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF6yz8qF2AurZtWC4VuudcQV2gs2wLopanb7eEoMg8Ef";
-    laptop = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIExGxnc/NYA1zuezr5SxfM7JbuLiRbBjy5FdBpBdASSA";
-    server = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMJ9vjbpG3/h/EES9UiuZxgpuySqtlw834/RhFwt4qGj";
-  };
+  hostKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMJ9vjbpG3/h/EES9UiuZxgpuySqtlw834/RhFwt4qGj";
 
   mkSecret = name: {
     name = "secrets/${name}.age";
     value = {
-      publicKeys = builtins.attrValues hostKeys;
+      publicKeys = [ hostKey ];
       armor = true;
     };
   };
 
-  mkTorSecret = host: service: {
-    name = "secrets/tor-${host}-${service}.age";
+  mkTorSecret = service: {
+    name = "secrets/tor-${service}.age";
     value = {
-      publicKeys = [ hostKeys.${host} ];
+      publicKeys = [ hostKey ];
       armor = true;
     };
   };
 
   torSecrets = builtins.concatMap
-    (host: map (mkTorSecret host) [ "files" "ssh" ])
-    (builtins.attrNames hostKeys);
+    (service: [ (mkTorSecret service) ])
+    [ "files" "ssh" ];
   secrets = builtins.listToAttrs ((map mkSecret secretNames) ++ torSecrets);
 in
 secrets

@@ -1,4 +1,4 @@
-{ config, hostname, lib, ... }:
+{ config, lib, ... }:
 let
   onionServices = {
     files = {
@@ -17,11 +17,11 @@ let
     };
   };
 
-  secretName = service: "tor-${hostname}-${service}";
+  secretName = service: "tor-${service}";
 in
 {
   age.secrets = lib.mapAttrs' (service: _: lib.nameValuePair (secretName service) {
-    file = ./../../secrets/${secretName service}.age;
+    file = ./../secrets/${secretName service}.age;
     mode = "0400";
     owner = "tor";
     group = "tor";

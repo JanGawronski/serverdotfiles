@@ -9,8 +9,7 @@
       df = "df --human-readable";
       du = "du --human-readable --summarize";
       tree = "tree -L 2";
-      book = "mpv --no-video --save-position-on-quit";
-      music = "mpv --shuffle --loop-playlist --no-video";
+      wakeMATPC = "wakeonlan D8:BB:C1:02:2D:5C";
     };
     interactiveShellInit = "set -g fish_greeting";
   };
