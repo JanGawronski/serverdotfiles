@@ -179,7 +179,7 @@ PHP
         chmod 0640 ${appRoot}/configuration.php
       fi
 
-      sed -i "s/'download_inline' => \[[^]]*\]/'download_inline' => ['pdf', 'mp3', 'wav', 'ogg', 'm4a', 'flac']/" \
+      sed -i "s/'download_inline' => \[[^]]*\]/'download_inline' => ['pdf', 'mp3', 'wav', 'ogg', 'm4a', 'flac', 'mp4', 'webm']/" \
         ${appRoot}/configuration.php
 
       if [ ! -e ${appRoot}/private/users.json ]; then
