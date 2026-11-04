@@ -14,7 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     }; 
     
-    copilot-cli.url = "github:scarisey/copilot-cli-flake";
+    copilot-cli.url = "github:scarisey/copilot-cli-flake/f45492d7510a13e1ee54194a94fff097f97a988d";
   };
   
   outputs = { nixpkgs, home-manager, agenix, musicbot, copilot-cli, ... }: {
