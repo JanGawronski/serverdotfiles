@@ -215,23 +215,33 @@ PHP
     recommendedGzipSettings = true;
     recommendedOptimisation = true;
     recommendedTlsSettings = true;
-    virtualHosts."files.jarzab.net.pl" = {
-      enableACME = true;
-      forceSSL = true;
-      root = "${appRoot}/dist";
-      locations."/" = {
-        index = "index.php";
-        tryFiles = "$uri $uri/ /index.php?r=$uri&$args";
+    virtualHosts = {
+      "server.jarzab.net.pl" = {
+        default = true;
+        enableACME = true;
+        forceSSL = true;
+        locations."/" = {
+          return = "404";
+        };
       };
-      locations."~ \\.php$" = {
-        extraConfig = ''
-          include ${pkgs.nginx}/conf/fastcgi.conf;
-          fastcgi_param SCRIPT_FILENAME ${appRoot}/dist$fastcgi_script_name;
-          fastcgi_pass unix:${config.services.phpfpm.pools.filegator.socket};
-        '';
-      };
-      locations."~ /\\." = {
-        extraConfig = "deny all;";
+      "files.jarzab.net.pl" = {
+        enableACME = true;
+        forceSSL = true;
+        root = "${appRoot}/dist";
+        locations."/" = {
+          index = "index.php";
+          tryFiles = "$uri $uri/ /index.php?r=$uri&$args";
+        };
+        locations."~ \\.php$" = {
+          extraConfig = ''
+            include ${pkgs.nginx}/conf/fastcgi.conf;
+            fastcgi_param SCRIPT_FILENAME ${appRoot}/dist$fastcgi_script_name;
+            fastcgi_pass unix:${config.services.phpfpm.pools.filegator.socket};
+          '';
+        };
+        locations."~ /\\." = {
+          extraConfig = "deny all;";
+        };
       };
     };
   };
