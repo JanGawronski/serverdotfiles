@@ -1,5 +1,6 @@
 {
   imports = [
+    ./bash.nix
     ./directory.nix
     ./emacs.nix
     ./eza.nix
