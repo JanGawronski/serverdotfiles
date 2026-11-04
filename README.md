@@ -1,9 +1,9 @@
 # My Nixos configuration
 
-Configuration for my machines.
+Configuration for server.
 
 ## How to build
 
 ```bash
-# nixos-rebuild switch --flake .#host 
+# nixos-rebuild switch --flake .#server
 ```

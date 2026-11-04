@@ -11,6 +11,7 @@
     ./kernel.nix
     ./keymap.nix
     ./pamsshd.nix
+    ./root.nix
     ./rtkit.nix
     ./ssh.nix
     ./stateversion.nix

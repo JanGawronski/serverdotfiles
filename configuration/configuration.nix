@@ -1,17 +1,13 @@
-{ config, lib, pkgs, inputs, hostname, ... }:
+{ config, pkgs, ... }:
 {
   imports = [
-    ./../../module/configuration
+    ./default.nix
     ./hardware-configuration.nix
     ./networking.nix
-    ./agenix.nix
-    (import ./ngrok.nix { inherit config; })
-    (import ./playit.nix { inherit config; })
-    (import ./../../module/configuration/hostname.nix { inherit hostname; })
-    ./guestuser.nix
+    ./hostname.nix
     ./guestuserssh.nix
-    (import ./musicbot.nix { inherit config; })
+    ./musicbot.nix
   ];
 
-  environment.systemPackages = (import ./../../module/configuration/packages.nix { inherit pkgs; }).basePackages;
+  environment.systemPackages = (import ./packages.nix { inherit pkgs; }).basePackages;
 }

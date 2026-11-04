@@ -1,3 +1,3 @@
 {
-	home.username = "user";
+	home.username = "guest";
 }

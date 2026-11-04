@@ -17,29 +17,31 @@
     copilot-cli.url = "github:scarisey/copilot-cli-flake";
   };
   
-  outputs = inputs@{ self, nixpkgs, home-manager, agenix, musicbot, copilot-cli, ... }: { 
-    nixosConfigurations = nixpkgs.lib.foldl' (configs: hostname:
-      configs // {
-        "${hostname}" = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit hostname; };
-          modules = [ 
-	          ./host/${hostname}/configuration.nix
-            agenix.nixosModules.default
-            { environment.systemPackages = [
-                agenix.packages.x86_64-linux.default
-                copilot-cli.packages.x86_64-linux.default
-              ]; }
-	          musicbot.nixosModule
-	          home-manager.nixosModules.home-manager {
-		          home-manager = {
-			          useGlobalPkgs = true;
-			          useUserPackages = true;
-			          users.user = import ./host/${hostname}/home.nix;
-			          backupFileExtension = "backup";
-		          };		
-	          }
+  outputs = { nixpkgs, home-manager, agenix, musicbot, copilot-cli, ... }: {
+    nixosConfigurations.server = nixpkgs.lib.nixosSystem {
+      specialArgs = { hostname = "server"; };
+      modules = [
+        ./configuration/configuration.nix
+        agenix.nixosModules.default
+        musicbot.nixosModule
+        {
+          environment.systemPackages = [
+            agenix.packages.x86_64-linux.default
+            copilot-cli.packages.x86_64-linux.default
           ];
-        };
-      }) {} (builtins.attrNames (builtins.readDir ./host));
+        }
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.user = import ./home/user;
+            users.matman = import ./home/matman;
+            users.guest = import ./home/guest;
+            backupFileExtension = "backup";
+          };
+        }
+      ];
+    };
   };
 }
