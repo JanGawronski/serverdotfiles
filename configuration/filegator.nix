@@ -179,6 +179,9 @@ PHP
         chmod 0640 ${appRoot}/configuration.php
       fi
 
+      sed -i "s/'download_inline' => \[[^]]*\]/'download_inline' => ['pdf', 'mp3', 'wav', 'ogg', 'm4a', 'flac']/" \
+        ${appRoot}/configuration.php
+
       if [ ! -e ${appRoot}/private/users.json ]; then
         cp ${appRoot}/private/users.json.blank ${appRoot}/private/users.json
         chown filegator:nginx ${appRoot}/private/users.json
