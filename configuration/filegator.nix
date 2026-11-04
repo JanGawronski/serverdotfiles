@@ -76,7 +76,7 @@ return [
     'public_dir' => APP_PUBLIC_DIR,
     'overwrite_on_upload' => false,
     'timezone' => 'Europe/Warsaw',
-    'download_inline' => ['pdf'],
+    'download_inline' => ['pdf', 'mp3', 'wav', 'ogg', 'm4a', 'flac'],
     'lockout_attempts' => 5,
     'lockout_timeout' => 900,
     'frontend_config' => [
