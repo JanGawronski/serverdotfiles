@@ -2,8 +2,9 @@ let
   secretNames = [
     "git-credentials"
     "musicbot"
-    "userpassword"
     "rootpassword"
+    "userpassword"
+    "matmanpassword"
     "guestpassword"
   ];
 

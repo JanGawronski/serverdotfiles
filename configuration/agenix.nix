@@ -8,7 +8,7 @@
       };
       root-password.file = ./../secrets/rootpassword.age;
       user-password.file = ./../secrets/userpassword.age;
-      matman-password.file = ./../secrets/userpassword.age;
+      matman-password.file = ./../secrets/matmanpassword.age;
       guest-password.file = ./../secrets/guestpassword.age;
       musicbot = {
         file = ./../secrets/musicbot.age;
