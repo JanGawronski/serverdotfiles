@@ -55,5 +55,6 @@
     gnupg
     man-pages
     man-pages-posix
+    wakeonlan
   ];
 }
