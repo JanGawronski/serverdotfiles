@@ -8,6 +8,7 @@
     ./guestuserssh.nix
     ./musicbot.nix
     ./filegator.nix
+    ./immich.nix
   ];
 
   environment.systemPackages = (import ./packages.nix { inherit pkgs; }).basePackages;
