@@ -1,11 +1,11 @@
 let
   secretNames = [
-    "git-credentials"
+    "root-password"
+    "user-password"
+    "matman-password"
+    "guest-password"
+    "user-git-credentials"
     "musicbot"
-    "rootpassword"
-    "userpassword"
-    "matmanpassword"
-    "guestpassword"
   ];
 
   hostKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMJ9vjbpG3/h/EES9UiuZxgpuySqtlw834/RhFwt4qGj";
