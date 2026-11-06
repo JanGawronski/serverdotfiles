@@ -9,6 +9,7 @@
     ./firewall.nix
     ./fish.nix
     ./fonts.nix
+    ./graphics.nix
     ./hardware-configuration.nix
     ./hostname.nix
     ./guestuserssh.nix
@@ -16,6 +17,7 @@
     ./keymap.nix
     ./musicbot.nix
     ./networking.nix
+    ./ollama.nix
     ./filegator.nix
     ./immich.nix
     ./pamsshd.nix
@@ -30,12 +32,6 @@
     ./vim.nix
     ./zoxide.nix
   ];
-
-  services.ollama = {
-    enable = true;
-    package = pkgs.ollama-rocm;
-    host = "0.0.0.0";
-  };
 
   environment.systemPackages = (import ./packages.nix { inherit pkgs; }).basePackages;
 }
