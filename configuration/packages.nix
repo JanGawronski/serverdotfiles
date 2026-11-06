@@ -57,5 +57,6 @@
     man-pages-posix
     wakeonlan
     ollama-rocm
+    nvtopPackages.amd
   ];
 }
