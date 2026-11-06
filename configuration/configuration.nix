@@ -31,5 +31,11 @@
     ./zoxide.nix
   ];
 
+  services.ollama = {
+    enable = true;
+    package = pkgs.ollama-rocm;
+    host = "0.0.0.0";
+  };
+
   environment.systemPackages = (import ./packages.nix { inherit pkgs; }).basePackages;
 }

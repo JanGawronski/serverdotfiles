@@ -56,5 +56,6 @@
     man-pages
     man-pages-posix
     wakeonlan
+    ollama-rocm
   ];
 }
