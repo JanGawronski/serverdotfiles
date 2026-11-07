@@ -15,6 +15,7 @@
     ./guestuserssh.nix
     ./kernel.nix
     ./keymap.nix
+    ./matrix.nix
     ./musicbot.nix
     ./networking.nix
     ./ollama.nix

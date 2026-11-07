@@ -6,6 +6,8 @@ let
     "guest-password"
     "user-git-credentials"
     "musicbot"
+    "matrix-livekit-key"
+    "matrix-registration-shared-secret"
   ];
 
   hostKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMJ9vjbpG3/h/EES9UiuZxgpuySqtlw834/RhFwt4qGj";

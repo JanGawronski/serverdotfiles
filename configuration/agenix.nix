@@ -16,6 +16,16 @@
         owner = "musicbot";
         group = "musicbot";
       };
+      matrix-livekit-key = {
+        file = ./../secrets/matrix-livekit-key.age;
+        mode = "0400";
+      };
+      matrix-registration-shared-secret = {
+        file = ./../secrets/matrix-registration-shared-secret.age;
+        mode = "0400";
+        owner = "matrix-synapse";
+        group = "matrix-synapse";
+      };
     };
   };
 }
