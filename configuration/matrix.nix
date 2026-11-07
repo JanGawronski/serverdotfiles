@@ -13,6 +13,7 @@ in
     enable = true;
     settings = {
       database.name = "sqlite3";
+      max_upload_size = "100G";
       registration_shared_secret_path =
         config.age.secrets.matrix-registration-shared-secret.path;
       server_name = homeserver;
