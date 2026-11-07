@@ -18,7 +18,8 @@ in
         config.age.secrets.matrix-registration-shared-secret.path;
       server_name = homeserver;
       public_baseurl = "https://${homeserver}/";
-      enable_registration = false;
+      enable_registration = true;
+      enable_registration_without_verification = true;
       report_stats = false;
       listeners = [
         {
