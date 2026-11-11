@@ -10,6 +10,7 @@
       du = "du --human-readable --summarize";
       tree = "tree -L 2";
       wakeMATPC = "wakeonlan D8:BB:C1:02:2D:5C";
+      copilot = "nix shell nixpkgs#nodejs -c npx --yes @github/copilot";
     };
     interactiveShellInit = "set -g fish_greeting";
   };

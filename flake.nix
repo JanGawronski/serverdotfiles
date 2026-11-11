@@ -13,11 +13,9 @@
       url = "github:JanGawronski/musicbot";
       inputs.nixpkgs.follows = "nixpkgs";
     }; 
-    
-    copilot-cli.url = "github:scarisey/copilot-cli-flake/f45492d7510a13e1ee54194a94fff097f97a988d";
   };
   
-  outputs = { nixpkgs, home-manager, agenix, musicbot, copilot-cli, ... }: {
+  outputs = { nixpkgs, home-manager, agenix, musicbot, ... }: {
     nixosConfigurations.server = nixpkgs.lib.nixosSystem {
       specialArgs = { hostname = "server"; };
       modules = [
@@ -27,7 +25,6 @@
         {
           environment.systemPackages = [
             agenix.packages.x86_64-linux.default
-            copilot-cli.packages.x86_64-linux.default
           ];
         }
         home-manager.nixosModules.home-manager
