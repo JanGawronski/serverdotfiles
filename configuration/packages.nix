@@ -58,5 +58,6 @@
     wakeonlan
     ollama-vulkan
     nvtopPackages.amd
+    immich-cli
   ];
 }
