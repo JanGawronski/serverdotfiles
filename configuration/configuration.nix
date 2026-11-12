@@ -13,6 +13,7 @@
     ./hardware-configuration.nix
     ./hostname.nix
     ./guestuserssh.nix
+    ./jellyfin.nix
     ./kernel.nix
     ./keymap.nix
     ./matrix.nix
