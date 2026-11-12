@@ -2,7 +2,7 @@
 
 let
   appRoot = "/var/lib/filegator/filegator";
-  dataRoot = "/srv/data/public/cieplabaza";
+  dataRoot = "/srv/data/public/filegator";
   filegator = pkgs.fetchzip {
     url = "https://raw.githubusercontent.com/filegator/static/604fdfe167f135b56d8615e2ddbdc4949fc9b2f9/builds/filegator_latest.zip";
     hash = "sha256-DUR/wv8wBQN41006TnlZyR0cgiTlAvK8D84o52kUfc0=";
