@@ -25,6 +25,7 @@
     ./pamsshd.nix
     ./root.nix
     ./rtkit.nix
+    ./samba.nix
     ./ssh.nix
     ./stateversion.nix
     ./timezone.nix
