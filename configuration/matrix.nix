@@ -103,7 +103,12 @@ in
             return 200 '{"m.homeserver":{"base_url":"https://${homeserver}"},"org.matrix.msc4143.rtc_foci":[{"type":"livekit","livekit_service_url":"https://${rtc}/livekit/jwt"}]}';
           '';
         };
-        locations."/_matrix".proxyPass = "http://127.0.0.1:${toString matrixPort}";
+        locations."/_matrix" = {
+          proxyPass = "http://127.0.0.1:${toString matrixPort}";
+          extraConfig = ''
+            client_max_body_size 100G;
+          '';
+        };
         locations."/_synapse".proxyPass = "http://127.0.0.1:${toString matrixPort}";
       };
 
