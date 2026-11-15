@@ -19,6 +19,7 @@
     ./matrix.nix
     ./musicbot.nix
     ./networking.nix
+    ./nextcloud.nix
     ./ollama.nix
     ./filegator.nix
     ./immich.nix

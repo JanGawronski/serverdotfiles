@@ -26,6 +26,16 @@
         owner = "matrix-synapse";
         group = "matrix-synapse";
       };
+      onlyoffice-nonce = {
+        file = ./../secrets/onlyoffice-nonce.age;
+        mode = "0440";
+        group = "nginx";
+      };
+      onlyoffice-jwt = {
+        file = ./../secrets/onlyoffice-jwt.age;
+        mode = "0440";
+        group = "onlyoffice";
+      };
     };
   };
 }

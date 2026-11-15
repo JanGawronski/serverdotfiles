@@ -8,6 +8,8 @@ let
     "musicbot"
     "matrix-livekit-key"
     "matrix-registration-shared-secret"
+    "onlyoffice-nonce"
+    "onlyoffice-jwt"
   ];
 
   hostKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMJ9vjbpG3/h/EES9UiuZxgpuySqtlw834/RhFwt4qGj";
