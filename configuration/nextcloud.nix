@@ -12,6 +12,7 @@
       onlyoffice = pkgs.nextcloud35Packages.apps.onlyoffice;
     };
     extraAppsEnable = true;
+    appstoreEnable = true;
     settings = {
       default_phone_region = "PL";
       "overwrite.cli.url" = "https://cloud.jarzab.net.pl";
