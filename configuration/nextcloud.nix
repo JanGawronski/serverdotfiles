@@ -20,6 +20,8 @@
 
   services.onlyoffice = {
     enable = true;
+    enableExampleServer = true;
+    examplePort = 8001;
     hostname = "office.jarzab.net.pl";
     port = 8000;
     securityNonceFile = config.age.secrets.onlyoffice-nonce.path;
