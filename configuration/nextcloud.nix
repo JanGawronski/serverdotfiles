@@ -27,6 +27,15 @@
     wopi = true;
   };
 
+  services.nginx.virtualHosts."cloud.jarzab.net.pl" = {
+    enableACME = true;
+    forceSSL = true;
+  };
+  services.nginx.virtualHosts."office.jarzab.net.pl" = {
+    enableACME = true;
+    forceSSL = true;
+  };
+
   age.secrets.onlyoffice-nonce = {
     file = ./../secrets/onlyoffice-nonce.age;
     mode = "0440";
