@@ -23,6 +23,7 @@
     ./ollama.nix
     ./filegator.nix
     ./immich.nix
+    ./family-tree-website.nix
     ./pamsshd.nix
     ./root.nix
     ./rtkit.nix
