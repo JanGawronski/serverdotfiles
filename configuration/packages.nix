@@ -59,5 +59,6 @@
     ollama-vulkan
     nvtopPackages.amd
     immich-cli
+    aria2
   ];
 }
