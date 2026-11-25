@@ -7,6 +7,10 @@
 				email = "coolmatteen@gmail.com";
 			};
 			init.defaultBranch = "master";
+      credential.helper = [
+        "!f() { [ \"$1\" = get ] && git credential-store --file /run/agenix/user-git-credentials get; exit 0; }; f"
+        "cache --timeout=3600"
+      ];
     };
   };
 }
